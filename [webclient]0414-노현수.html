@@ -34,19 +34,18 @@
             bottom: 20px; 
             background-color: green;
         }
-        .div2 {position: absolute; height: 100px; width: 100px; border: 1px;}
-        .div2 div{position: absolute; height: 300px; width: 300px;}
+        .div2 div{position: absolute; height: 100px; width: 100px;}
         #box1 {z-index: 0; background-color: red;}
         #box2 {z-index: 1; background-color: green;}
         #box3 {z-index: 2; background-color: blue;}
         #box2:hover {background-color: yellow; z-index: 10;}
-        #manuvar {background-color: olive;}
-        #manuvar ul{margin: 0;padding: 0;width: 527;}
-        #manuver ul li {display: inline-block;list-style-type: none;padding: 0px 15px;}
-        #manuver ul li a{color:white; text-decoration: none;}
-        #manuver ul li a:hover {color:violet}
-
         /* box:nth-child 활용하는 방법도 존재!! */
+        #manuvar {background-color: olive;}
+        #manuvar ul{margin: 0; padding: 0; width: 534;}
+        #manuvar ul li {display: inline;list-style: none;padding: 0px 15px;}
+        #manuvar ul li a{color:white; text-decoration-color: none;}
+        #manuvar ul li a:hover {color:rgb(0, 255, 251)}
+
     </style>
 </head>
 <body>
@@ -70,11 +69,10 @@
         <div>inline div</div>
     </div>
     <br> -->
+    <h1>실습#1:EX.5-1</h1>
     <section>
-        <h1>실습#1:EX.5-1</h1>
         <hr>
         <h1>상대위치, relative</h1>
-        <br>
         <p>h와 k 글자에 마우스를 올려 보세요</p>
         <hr>
         <div class="div1">
@@ -96,17 +94,26 @@
             <b style="color: azure;">S</b>
         </div>
     </section>
+    <hr>
+    <h1>실습#2:EX.5-2</h1>
     <section>
-        <h1>실습#2:EX.5-2</h1>
         <div class="div2">
-            <div id="box1" style ="position: absolute; left: 100px; top:200px;"></div>
-            <div id="box2" style ="position: absolute; left: 200px; top:300px;"></div>
-            <div id="box3" style ="position: absolute; left: 300px; top:400px;"></div>
+            <div id="box1" style ="position: absolute; left: 300px; top:360px;"></div>
+            <div id="box2" style ="position: absolute; left: 350px; top:410px;"></div>
+            <div id="box3" style ="position: absolute; left: 400px; top:460px;"></div>
         </div>
-        
     </section>
     <hr>
-    <h1>#2:EX.5-3</h1><hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h1>실습#3:EX.5-3</h1><hr>
     <nav id="manuvar">
         <ul>
             <li><a href="#1">HOME</a></li>
