@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    </head>
+    <body>
+        <h1>실습 #1:EX.6-1</h1>
+        <script>
+        function func() {
+            let name = prompt("Input Name: ");
+            document.write("Welcome " + name);
+        }
+    </script>
+    <button type="button" onclick="func()">눌러주세요</button>
+    <br>
+    <body>
+        <h1>실습 #2:EX.6-2</h1>
+        <script>
+            let date=new Date()
+            let year=date.getFullYear() 
+            let month=date.getMonth() 
+            let day=date.getDate() 
+            let hours=date.getHours() 
+            let minutes=date.getMinutes() 
+            let seconds=date.getSeconds() 
+            let msg="오늘은 "+
+            year+"년 "+
+            month+"월 "+
+            day+"일 "+
+            hours+"시 "+
+            minutes+"분 "+
+            seconds+"초 "
+            document.write(msg)
+    </script>
+    <br>
+</body>
+</html>
