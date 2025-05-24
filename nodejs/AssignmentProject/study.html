@@ -6,9 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div>TH<mark id="MTxt">A</mark>NKS</div>
+    <div>TH<strong id="MTxt">A</strong>NKS</div>
+    <div id="output1"></div>
+    <div id="output2">마우스 포인터 위치</div>
+    <img id="card" src="card.webp" alt="카드깡">
+    <div id="output3"></div>
 </body>
     <script>
+        let count=0;
+        let hour=0;
+        function updateCountdown() {
+            let now = new Date();
+            document.getElementById("output1").innerHTML = `현재 시간: ${now.toLocaleTimeString()}`;
+        }
+        document.addEventListener('mousemove',(e)=>{
+            document.getElementById('output2').innerHTML = `x=${e.clientX} y=${e.clientY}`;
+        });
+
         let text =document.getElementById("MTxt");
         text.onmouseover=function(){
             text.style.color="white"
@@ -16,6 +30,13 @@
         text.onmouseout=function(){
             text.style.color="black"
         };
-        time=
+        setInterval(()=>{
+            count++;
+            if (count>=60){
+                count=0;
+                hour++
+            };
+            document.getElementById("output3").innerHTML = `${hour}분 ${count}초`;
+        },1000);
     </script>
 </html>

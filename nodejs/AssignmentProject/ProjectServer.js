@@ -8,7 +8,6 @@ app.get('/',(req, res)=>{
     res.sendFile(path.join(__dirname, "study.html"));
 });
 
-
 app.listen(port, function(){      // 54222 포트에서 서버 실행
     console.log(`Server Running at http://localhost:${port}`); // 서버 실행 메시지 출력
 });
