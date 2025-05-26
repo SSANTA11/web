@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+    body{
+      background-image:url('bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    div .bg-layer{
+      s
+    }
+    </style>
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+  <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-success rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bg-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">홈</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">채팅 시작하기</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">나가기</button>
+    </li>
+  </ul>
+
+    <div>TH<strong id="MTxt">A</strong>NKS</div>
+    <div id="output1"></div>
+    <div id="output2">마우스 포인터 위치</div>
+    <div id="output3"></div>
+    <script>
+        // 시간 카운트
+        let count = 0;
+        let hour = 0;
+        setInterval(() => {
+            count++;
+            if (count >= 60) {
+                count = 0;
+                hour++;
+            }
+            document.getElementById("output3").innerHTML = `${hour}분 ${count}초`;
+        }, 1000);
+
+        // 현재 시간
+        function updateCountdown() {
+            let now = new Date();
+            document.getElementById("output1").innerHTML = `현재 시간: ${now.toLocaleTimeString()}`;
+        }
+        setInterval(updateCountdown, 1000);
+
+        // 마우스 좌표 출력
+        document.addEventListener('mousemove', (e) => {
+            document.getElementById('output2').innerHTML = `x=${e.clientX}, y=${e.clientY}`;
+        });
+    </script>
+</body>
+</html>
