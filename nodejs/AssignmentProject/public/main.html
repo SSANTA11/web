@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKU Chat</title>
+  <base href="http://localhost:3000/public">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
     body {
       background-image: url('bg.jpg');
       background-size: cover;
@@ -12,93 +15,106 @@
       margin: 0;
       padding: 0;
       position: relative;
-      perspective: 10000px;
+      min-height: 100vh;
     }
-    .card:hover{
-      transform-style:preserve-3d;
-      animation: rotate 10s infinite ease;
+    .card {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 20px;
     }
-    @keyframes boom{
-      from{width: 128.92px; height: 45px;}
-      to{width: 140px; height: 60px;}
+    h1 {
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
     }
-    @keyframes rotate{
-      from{transform: rotateY(0deg);}
-      to{transform: rotateY(360deg);}
-    }
-    </style>
+  </style>
 </head>
 <body>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-<br>
-<br>
-<!-- <div id="fadeout-layer" style=""></div> -->
-<div class="container d-flex flex-column align-items-center gap-4 mt-5">
-  <div class="card text-center align-items-center" style="width: 400px; border-radius: 20px;">
-    <div>
-      <img src="https://campustown.seoul.go.kr/site/main/file/image/uu/3537bf01c5c64b92a2034e2f1c67707d" alt="로고" style="width: 100px; border: 10px;">
-      <h1 style="font-weight: 600;">SKU Chatting Site</h1>
-    </div>
-    <br>
-  </div>
-    <ul  class="nav nav-pills nav-fill gap-2 p-1 small bg-success rounded-5 shadow-sm " id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bg-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">홈</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">나가기</button>
-      </li>
-    </ul>
-    <div class="card text-center" style=" width: 15rem; opacity: 80%; box-shadow: 0 0 30px rgba(190, 18, 18, 0.2); height: 250px;">
-      <div class="card-body border border-0">
-        <p class="card-text" ></p>
-        <span style="font-weight: 800;">현재시간</span><br><div id="output1" style="font-size: 50px;"></div><br>
+  <div class="container text-center mt-5">
+    <h1>SKU Chatting Site</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">현재 시간</h5>
+            <div id="output1" style="font-size: 40px;"></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card text-center" style=" width: 15rem; opacity: 80%; box-shadow: 0 0 30px rgba(190, 18, 18, 0.2); height: 150px;">
-      <div class="card-body border border-0">
-        <p class="card-text" ></p>
-          <span style="font-weight: 800;">사이트 방문시간</span><br><div id="output3" style="font-size: 50px;"></div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">방문 시간</h5>
+            <div id="output3" style="font-size: 40px;"></div>
+          </div>
+        </div>
       </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">마우스 좌표</h5>
+            <div id="output2" style="font-size: 20px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">공지사항</h5>
+            <p>공지 내용을 여기에 입력하세요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">로그</h5>
+            <p>로그 데이터 또는 활동 내역</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">채팅 이동</h5>
+            <a href="/Room.html" class="btn btn-success">채팅 시작하기</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <ul id="bar" class="nav nav-pills nav-fill gap-2 p-1 small bg-success rounded-5 shadow-sm" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bg-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-      <li class="nav-item " role="presentation">
-        <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><b>채팅 시작하기</b></button>
-      </li>
-    </ul>
   </div>
 
-<div>TH<strong id="MTxt">A</strong>NKS</div>
-    <div id="output2">마우스 포인터 위치</div>
-    <script>
-        // 시간 카운트
-        let count = 0;
-        let hour = 0;
-        setInterval(() => {
-            count++;
-            if (count >= 60) {
-                count = 0;
-                hour++;
-            }
-            document.getElementById("output3").innerHTML = `${hour}분 ${count}초`;
-        }, 1000);
+  <script>
+    // 방문 시간 타이머
+    let count = 0;
+    let hour = 0;
+    setInterval(() => {
+      count++;
+      if (count >= 60) {
+        count = 0;
+        hour++;
+      }
+      document.getElementById("output3").innerHTML = `${hour}분 ${count}초`;
+    }, 1000);
 
-        // 현재 시간
-        function updateCountdown() {
-            let now = new Date();
-            document.getElementById("output1").innerHTML = ` ${now.toLocaleTimeString()}`;
-        }
-        setInterval(updateCountdown, 1000);
+    // 현재 시간 표시
+    function updateCountdown() {
+      let now = new Date();
+      document.getElementById("output1").innerHTML = `${now.toLocaleTimeString()}`;
+    }
+    setInterval(updateCountdown, 1000);
 
-        // 마우스 좌표 출력
-        document.addEventListener('mousemove', (e) => {
-          document.getElementById('output2').innerHTML = `x=${e.clientX}, y=${e.clientY}`;
-        });
-        let card = document.getElementsByClassName('card');
-        card.document.addEventListener('mouseleave', ()=>{
-          card.st
-        });
-        </script>
-        </body>
-        </html>
+    // 마우스 좌표 표시
+    document.addEventListener('mousemove', (e) => {
+      document.getElementById('output2').innerHTML = `x=${e.clientX}, y=${e.clientY}`;
+    });
+  </script>
+</body>
+</html>
