@@ -8,30 +8,84 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <base href="http://localhost:3000">
   <style>
-    body {
-      background-image: url('/bg2.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin: 0;
-      padding: 0;
-      position: relative;
+    #bg {
+      background-image: url('lgbg.jpg');
       width: 100vw;
-      min-height: 100vh;
-      background-color: rgba(85, 11, 11, 0.8);
-      background-blend-mode:darken;
+      height: 100vh;
+      background-position: center;
+      background-size: cover;
+      background-repeat:no-repeat;
+      position: fixed;
+      top: 0;
+      z-index: -10;
+    }
+    #logbanner{
+    background-color: rgb(255, 255, 255);
+    border: 0cap;
+    }
+    .card {
+     border: 0ch;
+     box-shadow: 0 0 4px rgb(0, 0, 0);
+     color: rgba(0, 0, 0, 0.484);
+    }
+    #dog,
+    #doge {
+      z-index: -1;
     }
   </style>
 </head>
 
 <body>
-  <form name="로그인" method="get" action="/main">
-    별명 있을까? 채팅방에서 쓸 이름!<br> <input name="닉네임" type="text" value="익명"><br>
-    <button type="submit" class="btn btn-primary" style="--bs-btn-padding-y: 11px; --bs-btn-padding-x: 22px; --bs-btn-font-size: 22px;">
-      로그인
-    </button>
+  <div id="bg"> </div>
+  <div class="d-flex justify-content-center mt-5">
+    <div style="position: relative; width: 120px; height: 120px;">
+      <img id="dog" src="dog.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
+      <img id="doge" src="dogeye.png" alt="dogeye" style="position: absolute; top: -50px; left: 0; width: 100%; pointer-events: none;">
+    </div>
+  </div>
+  <form class="row row-cols-1 row-cols-md-4 g-5 justify-content-center mid" action="/main" method="get">
+    <div class="card text-center align-items-center">
+      <p id="logbanner" class="form-control mb-5 rounded-top-0 ">방문을 환영합니다</p>
+      <label for="username">
+        <input class="text rounded-pill border-1 form-control mb-3" id="username" name="username" placeholder="아이디">
+      </label>
+      <label for="password ">
+        <input  class="text rounded-pill border-1 form-control mb-5 type=" type="password" name="password" placeholder="비밀번호">
+      </label>
+      <button type="submit" class="text rounded-pill border-0 form-control mb-3 btnLogin" style="background-color: rgb(0, 0, 255); color: azure;">로그인</button>
+    </div>
   </form>
-  <script>
-  </script>
-</body>
+ <script>
+   document.addEventListener("mousemove", (e) => {
+  let eye = document.getElementById("doge");
+  let eyeBox = eye.getBoundingClientRect();
 
+  let centerX = eyeBox.left + eyeBox.width / 2;
+  let centerY = eyeBox.top + eyeBox.height / 2;
+
+  let deltaX = (e.clientX - centerX) * 0.1;
+  let deltaY = (e.clientY - centerY) * 0.1;
+
+  let max = 2;
+
+  let x = Math.max(-max, Math.min(max, deltaX));
+  let y = Math.max(-max, Math.min(max, deltaY)+10);
+
+  eye.style.transform = `translate(${x}px, ${y}px)`;
+});
+function d_move(X, Y) {
+  const d = document.getElementById("bg");
+  d.style.transform = `translate(${X}px, ${Y}px)`;
+};
+document.addEventListener("mousemove", (e) => {
+  let mX = (e.clientX ) * 0.01;
+  let mY = (e.clientY ) * 0.01;
+  d_move(mX, mY);
+});
+// document.addEventListener('onclick',()=>{
+//   let
+// });
+// 다음에 할 것 : 1. 커서를 나비로 만들기 2. 비번란 클릭 시 강아지 안대 씌우는 애니메이션 추가 3. 클릭 시 이스터에그? 근육 시바견 등짝
+</script>
+</body>
 </html>

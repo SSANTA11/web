@@ -24,8 +24,9 @@
     /* 주의: opacity는 전체 요소에 영향을 줌
     div에 opacity: 0.6을 걸면 → 그 안의 텍스트나 버튼도 전부 투명해짐... rgba()로 조절!*/
     .card {
-      background-color: rgba(255, 255, 255, 0.511);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: rgba(0, 0, 0, 0.058);
+      box-shadow: 0 4px 8px rgb(255, 255, 255);
+      color: rgba(255, 255, 255, 0.484);
       border-radius: 20px;
     }
     h1 {
@@ -38,7 +39,7 @@
       transition: transform 0.1s ease-out;
       width: 500px;
     }
-    
+ 
     </style>
 </head>
 <body>
@@ -58,7 +59,6 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title"> OO님 어서십시오</h5>
-            <div id="output1" style="font-size: 40px;"></div>
           </div>
         </div>
       </div>
@@ -67,7 +67,6 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">현재 시간</h5>
-            <div id="output1" style="font-size: 40px;"></div>
           </div>
         </div>
       </div>
@@ -76,7 +75,6 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">skon</h5>
-            <div id="output1" style="font-size: 40px;"></div>
           </div>
         </div>
       </div>
@@ -85,7 +83,6 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">날씨</h5>
-            <div id="output1" style="font-size: 40px;"></div>
           </div>
         </div>
       </div>
@@ -94,7 +91,6 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">홈페이지</h5>
-            <div id="output1" style="font-size: 40px;"></div>
           </div>
         </div>
       </div>
