@@ -54,8 +54,14 @@
     body {
       cursor: url('butterfly-cursor.png'), auto;
     }
-    nav{
+
+    nav {
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.528);
+    }
+    .glass{
+      position: absolute;
+      z-index: 0;
+      width: 600px;
     }
   </style>
 </head>
@@ -63,51 +69,56 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-bg-primary p-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <img src="/logo.png" alt="Logo" width="200" class="d-inline-block align-text-top">
+      TikTak Talk <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="true">
+          Dropdown
+        </a>
+        <ul class="dropdown-menu show" data-bs-popper="static">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li>
+            <hr class="dropdown-divider">
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="true">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu show" data-bs-popper="static">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-    aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+<div class="row row-cols-2">
+  <img src="GlassO.png" alt="GlassO" class="glass">
+  <img src="GlassX.png" alt="GlassX" class="glass">
+</div>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
 
-  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body small">
       ...
@@ -124,7 +135,7 @@
   </div>
   <form class="row row-cols-1 row-cols-md-4 g-5 justify-content-center mid" action="/main" method="get">
     <div class="card text-center align-items-center">
-      <p id="logbanner" class="form-control mb-5 rounded-top-0 ">방문을 환영합니다</p>
+      <img src="/logo.png" alt="Logo" width="200" class="d-inline-block align-text-top">
       <label for="username">
         <input class="text rounded-pill border-1 form-control mb-3" id="username" name="username" placeholder="아이디">
       </label>
@@ -147,8 +158,8 @@
       let deltaX = (e.clientX - centerX) * 0.1;
       let deltaY = (e.clientY - centerY) * 0.09;
       let max = 1.5;
-      let x = Math.max(-max-2, Math.min(max, deltaX)+2);
-      let y = Math.max(-max+5, Math.min(max, deltaY) + 9);
+      let x = Math.max(-max - 2, Math.min(max, deltaX) + 2);
+      let y = Math.max(-max + 5, Math.min(max, deltaY) + 9);
       eye.style.transform = `translate(${x}px, ${y}px)`;
     });
     function d_move(X, Y) {
@@ -161,6 +172,9 @@
       d_move(mX, mY);
     });
   </script>
+  <footer class="text-center ">
+    © 2025 made by Rho
+  </footer>
 </body>
 
 </html>
