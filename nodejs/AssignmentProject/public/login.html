@@ -1,72 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 커서 -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다함꼐 즐기는 틱텍톡!</title>
+  <title>다함께 즐기는 틱텍톡!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <base href="http://localhost:3000">
   <style>
-    #bg {
-      background-image: url('lgbg.jpg');
-      width: 100vw;
-      height: 100vh;
-      background-position-y: center;
-      background-position-x: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: fixed;
-      top: 0;
-      z-index: -10;
-    }
-
-    #bgb {
-      background-image: url('lgbg.jpg');
-      width: 100vw;
-      height: 100vh;
-      background-position-y: center;
-      background-position-x: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: fixed;
-      top: 0;
-      z-index: -20;
-    }
-
-    #logbanner {
-      background-color: rgb(255, 255, 255);
-      border: 0cap;
-    }
-
-    .card {
-      border: 0ch;
-      box-shadow: 0 0 4px rgb(0, 0, 0);
-      color: rgba(0, 0, 0, 0.484);
-    }
-
-    #dog,
-    #doge {
-      z-index: -1;
-    }
-
-    body {
-      cursor: url('butterfly-cursor.png'), auto;
-    }
-
     nav {
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.528);
     }
+<<<<<<< HEAD
     .glass{
       position: absolute;
       left: 100px;
       width: 600px;
       }
+=======
+
+    #bg, #bgb {
+      background-image: linear-gradient(to  top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%), url('lgbg.jpg');
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: fixed;
+      top: 0;
+    }
+
+    #bg { z-index: -10; }
+    #bgb { z-index: -20; }
+
+    .card {
+      border: none;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    #dog, #doge {
+      z-index: -1;
+    }
+
+>>>>>>> cb54c09981f6a673ca1102da8f6d6d87033034fe
   </style>
 </head>
-
 <body>
+<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg bg-body-tertiary text-bg-primary p-3">
     <div class="container-fluid">
       <img src="/logo.png" alt="Logo" width="200" class="d-inline-block align-text-top">
@@ -114,67 +94,61 @@
 </div>
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
 aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+=======
+>>>>>>> cb54c09981f6a673ca1102da8f6d6d87033034fe
 
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body small">
-      ...
-    </div>
-  </div>
-  <div id="bg"> </div>
-  <div id="bgb"> </div>
+  <!-- 배경 이미지 -->
+  <div id="bg"></div>
+  <div id="bgb"></div>
+
+  <!-- 강아지 눈 효과 -->
   <div class="d-flex justify-content-center mt-5">
-    <div style="position: relative; width: 120px; height: 120px;">
+    <div style="position: relative; width: 120px; height: 120px; top: 50px;">
       <img id="dog" src="dog.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
       <img id="doge" src="dogEye.png" alt="dogEye"
         style="position: absolute; top: -50px; left: 0; width: 100%; pointer-events: none;">
     </div>
   </div>
-  <form class="row row-cols-1 row-cols-md-4 g-5 justify-content-center mid" action="/main" method="get">
-    <div class="card text-center align-items-center">
-      <img src="/logo.png" alt="Logo" width="200" class="d-inline-block align-text-top">
-      <label for="username">
-        <input class="text rounded-pill border-1 form-control mb-3" id="username" name="username" placeholder="아이디">
-      </label>
-      <label for="password ">
-        <input class="text rounded-pill border-1 form-control mb-5" type="password" name="password" placeholder="비밀번호">
-      </label>
-      <button type="submit" class="text rounded-pill border-0 form-control mb-3 btnLogin"
-        style="background-color: rgb(0, 0, 255); color: azure;">로그인</button>
+
+  <!-- 로그인 폼 -->
+  <form class="row justify-content-center mt-5" action="/main" method="get">
+    <div class="col-10 col-md-4">
+      <div class="card text-center align-items-center p-4">
+        <img src="/logo.png" alt="Logo" width="200"  class="d-inline-block align-text-top mb-3">
+        <input class="text rounded-pill border-1 form-control mb-3 text-center" id="username" name="username"
+          placeholder="아이디" required>
+        <input class="text rounded-pill border-1 form-control mb-4 text-center" type="password" id="password"
+          name="password" placeholder="비밀번호" required>
+        <button type="submit" class="text rounded-pill border-0 form-control btnLogin"
+          style="background-color:navy; color: azure;">로그인</button>
+      </div>
     </div>
   </form>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener("mousemove", (e) => {
+      // 눈 추적
       let eye = document.getElementById("doge");
       let eyeBox = eye.getBoundingClientRect();
       let centerX = eyeBox.left + eyeBox.width / 2;
       let centerY = eyeBox.top + eyeBox.height / 2;
       let deltaX = (e.clientX - centerX) * 0.1;
       let deltaY = (e.clientY - centerY) * 0.09;
-      let max = 1.5;
-      let x = Math.max(-max - 2, Math.min(max, deltaX) + 2);
-      let y = Math.max(-max + 5, Math.min(max, deltaY) + 9);
+      let x = Math.max(-3.5, Math.min(3.5, deltaX) + 2);
+      let y = Math.max(3.5, Math.min(3.5, deltaY) + 9);
       eye.style.transform = `translate(${x}px, ${y}px)`;
-    });
-    function d_move(X, Y) {
-      const d = document.getElementById("bg");
-      d.style.transform = `translate(${X}px, ${Y}px)`;
-    };
-    document.addEventListener("mousemove", (e) => {
-      let mX = (e.clientX) * 0.01;
-      let mY = (e.clientY) * 0.01;
-      d_move(mX, mY);
+
+      // 배경 동작
+      let bg = document.getElementById("bg");
+      let mX = e.clientX * 0.01;
+      let mY = e.clientY * 0.01;
+      bg.style.transform = `translate(${mX}px, ${mY}px)`;
     });
   </script>
-  <footer class="text-center ">
+
+  <footer class="text-center mt-4 mb-2 text-white">
     © 2025 made by Rho
   </footer>
 </body>
-
 </html>
