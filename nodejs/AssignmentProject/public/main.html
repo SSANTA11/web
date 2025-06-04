@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -174,4 +174,112 @@
     });
   </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>채팅방 목록</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    #roomList {
+      margin-top: 20px;
+    }
+
+    .room {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>채팅방 목록</h2>
+<!-- 
+  <input type="text" id="roomName" placeholder="새 채팅방 이름 입력">
+  <button onclick="createRoom()">채팅방 생성</button>
+
+  <div id="roomList"></div> -->
+  <!-- 채팅방 생성 및 입장 전용 -->
+  <input type="text" id="roomName" placeholder="방 이름">
+  <button onclick="createRoom()">채팅방 생성</button>
+  <div id="roomList"></div>
+
+  <script>
+    function getRoomList() {
+      const data = localStorage.getItem("chatRooms");
+      return data ? JSON.parse(data) : [];
+    }
+
+    function saveRoomList(rooms) {
+      localStorage.setItem("chatRooms", JSON.stringify(rooms));
+    }
+
+    function renderRooms() {
+      const rooms = getRoomList();
+      const container = document.getElementById("roomList");
+      container.innerHTML = "";
+      rooms.forEach(room => {
+        const div = document.createElement("div");
+        div.innerHTML = `<a href="Room.html?room=${encodeURIComponent(room)}">${room}</a>`;
+        container.appendChild(div);
+      });
+    }
+
+    function createRoom() {
+      const name = document.getElementById("roomName").value.trim();
+      if (!name) return alert("방 이름을 입력하세요.");
+      const rooms = getRoomList();
+      if (rooms.includes(name)) return alert("이미 존재하는 방입니다.");
+      rooms.push(name);
+      saveRoomList(rooms);
+      renderRooms();
+      document.getElementById("roomName").value = "";
+    }
+
+    renderRooms();
+  </script>
+
+  // <script>
+  //   function getRoomList() {
+  //     const data = localStorage.getItem("chatRooms");
+  //     return data ? JSON.parse(data) : [];
+  //   }
+
+  //   function saveRoomList(rooms) {
+  //     localStorage.setItem("chatRooms", JSON.stringify(rooms));
+  //   }
+
+  //   function renderRooms() {
+  //     const rooms = getRoomList();
+  //     const container = document.getElementById("roomList");
+  //     container.innerHTML = "";
+  //     rooms.forEach(room => {
+  //       const div = document.createElement("div");
+  //       div.className = "room";
+  //       div.innerHTML = `<a href="chat.html?room=${encodeURIComponent(room)}">${room}</a>`;
+  //       container.appendChild(div);
+  //     });
+  //   }
+
+  //   function createRoom() {
+  //     const name = document.getElementById("roomName").value.trim();
+  //     if (!name) return alert("채팅방 이름을 입력하세요.");
+  //     const rooms = getRoomList();
+  //     if (rooms.includes(name)) return alert("이미 존재하는 채팅방입니다.");
+  //     rooms.push(name);
+  //     saveRoomList(rooms);
+  //     renderRooms();
+  //     document.getElementById("roomName").value = "";
+  //   }
+
+  //   renderRooms();
+  // </script>
+</body>
+
 </html>

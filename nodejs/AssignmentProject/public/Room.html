@@ -1,11 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>채팅방</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+    #chatBox { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; background: white; }
+    .msg { margin: 5px 0; }
+    .me { text-align: right; color: blue; }
+    .other { text-align: left; color: green; }
+  </style>
 </head>
 <body>
-  룸입니다
+
+  <h2 id="roomTitle">채팅방</h2>
+  <div id="chatBox"></div>
+  <input type="text" id="msgInput" placeholder="메시지를 입력하세요" />
+  <button onclick="sendMessage()">전송</button>
+
+  <script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let roomName = urlParams.get('room');
+    let userName = prompt("이름을 입력하세요") || "익명";
+
+    if (!roomName) {
+      alert("잘못된 접근입니다.");
+      location.href = "index.html";
+    }
+
+    document.getElementById("roomTitle").textContent = `채팅방: ${roomName}`;
+
+    // 채팅 데이터 키 = room 이름 기준
+    function getMessages() {
+      let data = localStorage.getItem("chat_" + roomName);
+      return data ? JSON.parse(data) : [];
+    }
+
+    function saveMessages(messages) {
+      localStorage.setItem("chat_" + roomName, JSON.stringify(messages));
+    }
+
+    function renderMessages() {
+      let messages = getMessages();
+      let chatBox = document.getElementById("chatBox");
+      chatBox.innerHTML = "";
+      messages.forEach(m => {
+        let msgDiv = document.createElement("div");
+        msgDiv.className = "msg " + (m.user === userName ? "me" : "other");
+        msgDiv.textContent = m.user + ": " + m.message;
+        chatBox.appendChild(msgDiv);
+      });
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      let input = document.getElementById("msgInput");
+      let text = input.value.trim();
+      if (!text) return;
+
+      let newMsg = { user: userName, message: text };
+      input.value = "";
+
+      setTimeout(() => {
+        let messages = getMessages();
+        messages.push(newMsg);
+        saveMessages(messages);
+        renderMessages();
+      }, 200);
+    }
+
+    window.addEventListener("storage", e => {
+      if (e.key === "chat_" + roomName) renderMessages();
+    });
+
+    renderMessages();
+  </script>
+
 </body>
 </html>
