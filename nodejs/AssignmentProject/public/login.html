@@ -31,12 +31,16 @@
       color: rgba(0, 0, 0, 0.7);
     }
 
-    #dog, #doge {
+    #dog1{
+      z-index: -3;
+    }
+    #dog2{
       z-index: -1;
     }
-
     #doge{
       opacity: 80%;
+      z-index: -2;
+
     }
 
   </style>
@@ -50,7 +54,8 @@
   <!-- 강아지 눈 효과 -->
   <div class="d-flex justify-content-center mt-5">
     <div style="position: relative; width: 120px; height: 120px; top: 50px;">
-      <img id="dog" src="dog.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
+      <img id="dog1" src="dog1.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
+      <img id="dog2" src="dog2.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
       <img id="doge" src="dogeye.png" alt="dogeye"
         style="position: absolute; top: -52px; left: 0; width: 100%; pointer-events: none;">
     </div>
