@@ -58,6 +58,8 @@
       <img id="dog2" src="dog2.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%;">
       <img id="doge" src="dogeye.png" alt="dogeye"
         style="position: absolute; top: -52px; left: 0; width: 100%; pointer-events: none;">
+      <img id="blind" src="blind.png" alt="blind"
+        style="position: absolute; top: 100px; left:7px; width: 90%; pointer-events: none;">
     </div>
   </div>
 
@@ -68,10 +70,11 @@
         <img src="/logo.png" alt="Logo" width="200"  class="d-inline-block align-text-top mb-3">
         <input class="text rounded-pill border-1 form-control mb-3 text-center" id="username" name="username"
           placeholder="아이디" required>
-        <input class="text rounded-pill border-1 form-control mb-4 text-center" type="password" id="password"
+        <input class="text rounded-pill border-1 form-control mb-4 text-center" onfocus="blind" type="password" id="password"
           name="password" placeholder="비밀번호" required>
         <button type="submit" class="text rounded-pill border-0 form-control btnLogin"
           style="background-color:navy; color: azure;">로그인</button>
+          <a href="register.html">회원이 아니라면 가입하세요!</a>
       </div>
     </div>
   </form>
@@ -96,6 +99,8 @@
       let mY = e.clientY * 0.01;
       bg.style.transform = `translate(${mX}px, ${mY}px)`;
     });
+    let blind=document.getElementById("username");
+    blind.style.transform=`translate(0px,100px))`;
   </script>
 
   <footer class="text-center mt-4 mb-2 text-white">
