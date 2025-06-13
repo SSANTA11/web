@@ -89,7 +89,7 @@
       let deltaY = (e.clientY - centerY) * 0.1;
 
       let x = Math.max(-40, Math.min(40, deltaX));
-      let y = Math.max(-40, Math.min(80, deltaY)); // 여기가 수정된 부분!
+      let y = Math.max(-40, Math.min(80, deltaY));
 
       eye.style.transform = `translate(${x}px, ${y}px)`;
     });

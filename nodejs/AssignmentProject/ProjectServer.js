@@ -1,14 +1,21 @@
 let express = require("express");
-
 let path = require("path");
-
 let bodyParser = require('body-parser');
-
+let fs = require('fs');
 let app = express();
 
 let dot=['.','..','...'];
 let i =0;
 let port = 3000;
+
+function readUsers() {
+  try {
+    const raw = fs.readFileSync('user.json', 'utf-8');
+    return JSON.parse(raw);
+  } catch (e) {
+    return [];
+  }
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,13 +31,12 @@ app.get('/main',(req, res)=>{
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   console.log("로그인 요청: ", username, password);
-  if (username==="admin" && password === "1234"){
-    res.redirect('/main');
-  }
-  else{
-    res.send("로그인 실패! 아이디나 비밀번호를 확인하세요.");
-  }
+  const users=readUsers()
+  const found=users.find((u)=>{
+    u.username===username&& u.password===password
+  });
 });
+
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
   console.log(" 회원가입 요청: ", username, password);
