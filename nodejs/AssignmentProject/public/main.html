@@ -49,9 +49,9 @@
 
     function createRoom() {
       const name = document.getElementById("roomName").value.trim();
-      if (!name) return alert("방 이름을 입력하세요.");
+      // if (!name) return alert("방 이름을 입력하세요.");
       const rooms = getRoomList();
-      if (rooms.includes(name)) return alert("이미 존재하는 방입니다.");
+      // if (rooms.includes(name)) return alert("이미 존재하는 방입니다.");
       rooms.push(name);
       saveRoomList(rooms);
       renderRooms();
