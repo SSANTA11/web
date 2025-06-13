@@ -45,9 +45,13 @@
       </div>
       <h2 class="mb-4 fw-bold mt-5">채팅방 목록</h2>
       <div class="card border-0 text-center" style="min-height: 10px; background-color: rgba(0, 0, 0, 0.541);"
-        id="roomList"></div>
+      id="roomList"></div>
     </div>
   </form>
+
+  <footer class="text-center mt-4 mb-2 text-white">
+    © 2025 made by Rho
+  </footer>
 
   <script>
     renderRooms();
@@ -83,7 +87,7 @@
       const container = document.getElementById("roomList");
       container.innerHTML = "";
       if (rooms.length === 0) {
-        container.innerHTML = `<p style="color:rgba(255, 255, 255,0.7);">⛔ 채팅방이 없습니다. 새로 만들어보세요!</p>`;
+        container.innerHTML = `<p style="color:rgba(255, 255, 255,0.7);"><br>⛔ 채팅방이 없습니다. 새로 만들어보세요!</p>`;
         return;
       }
       rooms.forEach(room => {

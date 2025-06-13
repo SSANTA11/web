@@ -23,7 +23,7 @@
       z-index: -19;
     }
 
-    #dogWrapper {
+    #dogEster {
       position: absolute;
       bottom: -3px;
       left: 50%;
@@ -40,19 +40,9 @@
       background: white;
     }
 
-    .msg {
-      margin: 5px 0;
-    }
-
-    .me {
-      text-align: right;
-      color: blue;
-    }
-
-    .other {
-      text-align: left;
-      color: green;
-    }
+    .msg {margin: 5px 0;}
+    .me {text-align: right;color: blue;}
+    .other {text-align: left;color: green;}
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <base href="http://localhost:3000">
@@ -62,7 +52,7 @@
   <div id="bg"></div>
   <br>
   <h2 class="mb-4 ms-4 fw-bold text-success-emphasis" id="roomTitle">채팅방</h2>
-  <div id="dogWrapper">
+  <div id="dogEster">
     <img id="dog1" src="dog1.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%; z-index: -3;">
     <img id="dog2" src="dog2.png" alt="dog" style="position: absolute; top: 0; left: 0; width: 100%; z-index: -1;">
     <img id="doge" src="dogeye.png" alt="dogeye"
@@ -77,8 +67,11 @@
       placeholder="메시지를 입력하세요" style="background-color: rgba(0, 0, 0, 0.425); color: antiquewhite;">
     <button class="btn rounded-top-0 rounded-bottom-0" onclick="sendMessage()"
       style="background-color: rgb(255, 255, 255);"><img src="send.svg" alt="전송"></button>
-  </div>
+    </div>
 
+    <footer class="text-center mt-4 mb-2 text-white">
+      © 2025 made by Rho
+    </footer>
   <script>
     document.addEventListener("mousemove", (e) => {
       let eye = document.getElementById("doge");
@@ -107,7 +100,7 @@
     document.getElementById("roomTitle").innerHTML = `채팅룸: ${roomName}\t( • ᴗ - ) ✧`;
 
     function renderMessages() {
-      fetch(`/messages?room=${roomName}`)
+      fetch(`/messages/room=${roomName}`)
         .then(res => res.json())
         .then(messages => {
           let chatBox = document.getElementById("chatBox");
@@ -121,10 +114,17 @@
           chatBox.scrollTop = chatBox.scrollHeight;
         });
     }
+    function clock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+
+      document.getElementById("clock").textContent = `${hours}:${minutes}`;
+    }
 
     function sendMessage() {
       let input = document.getElementById("msgInput");
-      let text = input.value.trim();
+      let text = input.value;
       if (!text) return;
 
       fetch("/messages", {
@@ -145,12 +145,10 @@
       if (e.key === "Enter") sendMessage();
     });
 
-    // 3초마다 자동 새로고침 (AJAX polling)
     setInterval(renderMessages, 3000);
-
+    setInterval(clock, 1000);
     renderMessages();
   </script>
-
 </body>
 
 </html>
