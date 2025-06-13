@@ -5,7 +5,7 @@
   <title>채팅방</title>
   <style>
     body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-    #chatBox { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; background: white; }
+    #chatBox { height: 1000px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; background: white; }
     .msg { margin: 5px 0; }
     .me { text-align: right; color: blue; }
     .other { text-align: left; color: green; }
@@ -16,10 +16,10 @@
 <body>
 
   <h2 id="roomTitle">채팅방</h2>
-  <div class="rounded-bottom-0 rounded-top-2 border-0" id="chatBox" style="background-color: rgba(127, 255, 138, 0.233);"></div>
+  <div class="rounded-bottom-0 rounded-top-2 border-0 " id="chatBox" style="background-color: rgba(0, 0, 0, 0.233);"></div>
   <div class="input-group ">
     <input class="form-control rounded-top-0 border-0" type="text" id="msgInput" placeholder="메시지를 입력하세요" style="background-color: rgba(0, 0, 0, 0.425);">
-    <button class="btn rounded-top-0" onclick="sendMessage()" style="background-color: aquamarine;"><img src="send.svg" alt="전송"></button>
+    <button class="btn rounded-top-0" onclick="sendMessage()" style="background-color: rgba(0, 8, 244, 0.52);"><img src="send.svg" alt="전송"></button>
   </div>
 
   <script>
@@ -49,7 +49,7 @@
       let chatBox = document.getElementById("chatBox");
       chatBox.innerHTML = "";
       messages.forEach(m => {
-        let msgDiv = document.createElement("div");
+        let msgtoast = document.createElement("div");
         msgDiv.className = "msg " + (m.user === userName ? "me" : "other");
         msgDiv.textContent = m.user + ": " + m.message;
         chatBox.appendChild(msgDiv);
